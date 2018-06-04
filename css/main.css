@@ -1849,7 +1849,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #13ffff;
+  background: #759cff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2609,11 +2609,9 @@ embed {
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
 }
-symbol.comma,
 .category-list ul {
   list-style: none;
 }
-symbol.comma li:before,
 .category-list ul li:before {
   content: '➢ ';
 }
@@ -2805,6 +2803,7 @@ h6 {
   margin-left: 0px;
   padding-left: 28px;
   margin-bottom: 25px;
+  padding-bottom: 10px;
 }
 .posts-expand .post-body img {
   border: none;
