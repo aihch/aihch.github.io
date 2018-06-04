@@ -1106,9 +1106,6 @@
         var result = document.execCommand('copy')
         document.body.removeChild(ta)
         
-          if(result)$(this).text('Copied')
-          else $(this).text('Copy failed')
-        
         $(this).blur()
       })).on('mouseleave', function (e) {
         var $b = $(this).find('.copy-btn')
