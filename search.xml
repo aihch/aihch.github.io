@@ -12,7 +12,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Python_crawler_eth]]></title>
+    <title><![CDATA[Crawler ETH]]></title>
     <url>%2F2018%2F07%2F14%2Feth_address-crawler.html</url>
     <content type="text"><![CDATA[ETH Address/Txhash. 1234567891011121314151617181920# -*- coding:UTF-8 -*-from itertools import islice #https://blog.csdn.net/xiaocaiju/article/details/6968123from bs4 import BeautifulSoupimport requestsif __name__ == "__main__": server = 'https://etherscan.io' target = 'https://etherscan.io/address/0xf075ade7cF89637860005288d60f697026755E74' req = requests.get(url = target) html = req.text a_div = BeautifulSoup(html, "html.parser") a = a_div.find_all('a', class_ = 'address-tag') #for each in islice(a, 0, None, 2): for each in islice(a, 1, None, 2): fo = open('YLH_ETH_add.txt', "ab+") fo.write(('\r' + each.string + '\r\n').encode('UTF-8')) fo.write((server + each.get('href') + '\n').encode('UTF-8')) fo.close() #print(each.string +'\n', server + each.get('href')+'\n\n') print('TxHash Download Completeds.')]]></content>
       <categories>
