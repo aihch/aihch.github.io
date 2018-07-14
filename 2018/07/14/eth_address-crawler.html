@@ -117,14 +117,14 @@
 
 
   <meta name="description" content="ETH Address/Txhash.">
-<meta name="keywords" content="LessonTwo,Python">
+<meta name="keywords" content="Python,LessonTwo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python_crawler_eth">
 <meta property="og:url" content="https://en.aihch.com/2018/07/14/eth_address-crawler.html">
 <meta property="og:site_name" content="Hello World">
 <meta property="og:description" content="ETH Address/Txhash.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-14T13:34:54.571Z">
+<meta property="og:updated_time" content="2018-07-14T15:23:26.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python_crawler_eth">
 <meta name="twitter:description" content="ETH Address/Txhash.">
@@ -392,7 +392,7 @@
         <center><strong>ETH Address/Txhash.</strong></center>
 
 <a id="more"></a>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"><span class="built_in">from</span> itertools import islice <span class="comment">#https://blog.csdn.net/xiaocaiju/article/details/6968123</span></span><br><span class="line"><span class="built_in">from</span> bs4 import BeautifulSoup</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    server = <span class="string">'https://etherscan.io'</span></span><br><span class="line">    target = <span class="string">'https://etherscan.io/address/0xf075ade7cF89637860005288d60f697026755E74'</span></span><br><span class="line">    req = requests.<span class="built_in">get</span>(url = target)</span><br><span class="line">    html = req.<span class="keyword">text</span></span><br><span class="line">    a_div = BeautifulSoup(html, <span class="string">"html.parser"</span>)</span><br><span class="line">    <span class="keyword">a</span> = a_div.find_all(<span class="string">'a'</span>, class_ = <span class="string">'address-tag'</span>)</span><br><span class="line">    <span class="comment">#for each in islice(a, 0, None, 2):</span></span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">in</span> islice(<span class="keyword">a</span>, <span class="number">1</span>, None, <span class="number">2</span>):       </span><br><span class="line">        fo = <span class="built_in">open</span>(<span class="string">'YLH_ETH_add.txt'</span>, <span class="string">"ab+"</span>)</span><br><span class="line">        fo.<span class="built_in">write</span>((<span class="string">'\r'</span> + <span class="keyword">each</span>.<span class="keyword">string</span> + <span class="string">'\r\n'</span>).encode(<span class="string">'UTF-8'</span>))</span><br><span class="line">        fo.<span class="built_in">write</span>((server + <span class="keyword">each</span>.<span class="built_in">get</span>(<span class="string">'href'</span>) + <span class="string">'\n'</span>).encode(<span class="string">'UTF-8'</span>))</span><br><span class="line">        fo.<span class="built_in">close</span>()</span><br><span class="line">        <span class="comment">#print(each.string +'\n', server + each.get('href')+'\n\n')</span></span><br><span class="line">    print(<span class="string">'TxHash Download Completeds.'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> islice <span class="comment">#https://blog.csdn.net/xiaocaiju/article/details/6968123</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    server = <span class="string">'https://etherscan.io'</span></span><br><span class="line">    target = <span class="string">'https://etherscan.io/address/0xf075ade7cF89637860005288d60f697026755E74'</span></span><br><span class="line">    req = requests.get(url = target)</span><br><span class="line">    html = req.text</span><br><span class="line">    a_div = BeautifulSoup(html, <span class="string">"html.parser"</span>)</span><br><span class="line">    a = a_div.find_all(<span class="string">'a'</span>, class_ = <span class="string">'address-tag'</span>)</span><br><span class="line">    <span class="comment">#for each in islice(a, 0, None, 2):</span></span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> islice(a, <span class="number">1</span>, <span class="keyword">None</span>, <span class="number">2</span>):       </span><br><span class="line">        fo = open(<span class="string">'YLH_ETH_add.txt'</span>, <span class="string">"ab+"</span>)</span><br><span class="line">        fo.write((<span class="string">'\r'</span> + each.string + <span class="string">'\r\n'</span>).encode(<span class="string">'UTF-8'</span>))</span><br><span class="line">        fo.write((server + each.get(<span class="string">'href'</span>) + <span class="string">'\n'</span>).encode(<span class="string">'UTF-8'</span>))</span><br><span class="line">        fo.close()</span><br><span class="line">        <span class="comment">#print(each.string +'\n', server + each.get('href')+'\n\n')</span></span><br><span class="line">    print(<span class="string">'TxHash Download Completeds.'</span>)</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -412,9 +412,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LessonTwo/" rel="tag"<i class="fa fa-tag"></i> LessonTwo</a>
-          
             <a href="/tags/Python/" rel="tag"<i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/LessonTwo/" rel="tag"<i class="fa fa-tag"></i> LessonTwo</a>
           
         </div>
       
@@ -436,6 +436,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/14/Simple_crawling_with_Mac.html" rel="prev" title="Simple crawling with Mac">
+                Simple crawling with Mac <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -504,7 +508,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

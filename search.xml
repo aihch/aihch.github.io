@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Simple crawling with Mac]]></title>
+    <url>%2F2018%2F07%2F14%2FSimple_crawling_with_Mac.html</url>
+    <content type="text"><![CDATA[Use Mac to perform simple crawling. 123456789101112131415161718# -*- coding:UTF-8 -*-from bs4 import BeautifulSoupimport requestsif __name__ == "__main__": target = 'https://blog.csdn.net/qq_40616487/article/details/79959264' req = requests.get(url = target) html = req.text bf = BeautifulSoup(html, "html.parser") article = bf.find_all('div', class_ = 'htmledit_views') article = article[0].text.replace('\xa0', '\n') #print(article)fo = open('Simple_crawling_with_Mac.txt', "ab+")print("'Use Mac to perform simple crawling' to start downloading:")fo.write(('\r' + article + '\r\n').encode('UTF-8')) fo.close()print("'Simple Crawling with Mac' download completed.")]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python_crawler_eth]]></title>
     <url>%2F2018%2F07%2F14%2Feth_address-crawler.html</url>
     <content type="text"><![CDATA[ETH Address/Txhash. 1234567891011121314151617181920# -*- coding:UTF-8 -*-from itertools import islice #https://blog.csdn.net/xiaocaiju/article/details/6968123from bs4 import BeautifulSoupimport requestsif __name__ == "__main__": server = 'https://etherscan.io' target = 'https://etherscan.io/address/0xf075ade7cF89637860005288d60f697026755E74' req = requests.get(url = target) html = req.text a_div = BeautifulSoup(html, "html.parser") a = a_div.find_all('a', class_ = 'address-tag') #for each in islice(a, 0, None, 2): for each in islice(a, 1, None, 2): fo = open('YLH_ETH_add.txt', "ab+") fo.write(('\r' + each.string + '\r\n').encode('UTF-8')) fo.write((server + each.get('href') + '\n').encode('UTF-8')) fo.close() #print(each.string +'\n', server + each.get('href')+'\n\n') print('TxHash Download Completeds.')]]></content>
@@ -9,8 +20,8 @@
         <category>LessonTwo</category>
       </categories>
       <tags>
-        <tag>LessonTwo</tag>
         <tag>Python</tag>
+        <tag>LessonTwo</tag>
       </tags>
   </entry>
   <entry>
@@ -22,8 +33,8 @@
         <category>LessonOne</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>LessonOne</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
